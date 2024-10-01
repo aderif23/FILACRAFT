@@ -77,7 +77,92 @@ body {
 #hamburger-menu {
   display: none;
 }
-
+.navbar .search-form {
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  width: 40rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
+.navbar .search-form.active {
+  transform: scaleY(1);
+}
+.navbar .search-form input {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: black;
+}
+.navbar .search-form label {
+  font-size: 2rem;
+  cursor: pointer;
+  margin-right: 1.5rem;
+  color: #000000;
+}
+.shopping-cart {
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  height: 100vh;
+  width: 35rem;
+  background-color: #fff;
+  padding: 0 1.5rem;
+  color: #000000;
+  transition: 0.3s;
+}
+.shopping-cart.active {
+  right: 0;
+}
+.shopping-cart .cart-item {
+  display: flex;
+  margin: 2rem 0;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed black;
+  align-items: center;
+}
+.shopping-cart img {
+  height: 6rem;
+  border-radius: 10%;
+}
+.shopping-cart h3 {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+.shopping-cart .item-price {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.shopping-cart .item-price p {
+  font-size: 1.2rem;
+}
+.shopping-cart .item-price span {
+  font-size: 0.9rem;
+  text-decoration: line-through;
+}
+.shopping-cart .item-price .amount-item {
+  border: 1px solid black;
+  width: 34%;
+  text-align: center;
+}
+.shopping-cart .item-price .amount-item::placeholder {
+  text-align: center;
+}
+.shopping-cart .remove-item {
+  color: #000000;
+  cursor: pointer;
+}
+.shopping-cart .remove-item:hover {
+  opacity: 50%;
+}
 /* SECTION START */
 .hero {
   min-height: 100vh;
@@ -175,6 +260,10 @@ body {
 /* ABOUT END */
 
 /* PRODUK START */
+.product-card {
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+}
 .product h2 {
   margin-bottom: 0.5rem;
 }
@@ -195,8 +284,32 @@ body {
 }
 .product .row .product-card {
   text-align: center;
-  padding-bottom: 4rem;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5%;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
 }
+.product .row .product-card .product-card-icons {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.product .row .product-card .product-card-icons a {
+  border: 1px solid rgb(0, 0, 0);
+  display: flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: white;
+  color: #000000;
+}
+.product .row .product-card .product-card-icons a:hover {
+  border: 1px solid white;
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
 .product .row .product-card img {
   border-radius: 10%;
   width: 80%;
@@ -206,6 +319,13 @@ body {
 }
 .product .row .product-card .product-card-price {
   margin: 0.5rem auto 0.5rem;
+  font-weight: 600;
+  color: red;
+}
+.product .row .product-card .product-card-price span {
+  text-decoration: line-through;
+  color: #000000;
+  font-size: 1rem;
 }
 /* PRODUK END */
 
@@ -308,10 +428,13 @@ footer .credit a {
   #hamburger-menu {
     display: inline-block;
   }
+  .navbar .navbar-logo {
+    font-size: 3rem;
+  }
   .navbar .navbar-logo img {
-    width: 20px;
-    margin-left: -22px;
-    margin-top: 3px;
+    width: 3rem;
+    margin-left: -32px;
+    margin-top: 4px;
   }
   .navbar .navbar-nav {
     position: absolute;
@@ -347,6 +470,19 @@ footer .credit a {
   .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.25);
     transform-origin: 0 0;
+  }
+  .navbar .search-form {
+    width: 90%;
+    right: 2.5rem;
+  }
+
+  .shopping-cart .item-price .amount-item {
+    font-size: 1rem;
+  }
+  .shopping-cart .item-price .amount-item::placeholder {
+    font-size: 70%;
+    text-align: center;
+    margin-top: 0;
   }
   .about .row {
     flex-wrap: wrap;
@@ -386,10 +522,13 @@ footer .credit a {
   html {
     font-size: 50%;
   }
+  .navbar .navbar-logo {
+    font-size: 3.5rem;
+  }
   .navbar .navbar-logo img {
-    width: 20px;
+    width: 22px;
     margin-left: -22px;
-    margin-top: 1%;
+    margin-top: 8px;
   }
   .about .row .about-img img {
     margin-left: 5.4rem;
